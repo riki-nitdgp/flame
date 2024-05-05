@@ -12,6 +12,7 @@ spec:
         steps:
           - name: build
             type: run
+            when: build.action == "pullreq_created"
             spec:
               container:
                 name: python:3.9

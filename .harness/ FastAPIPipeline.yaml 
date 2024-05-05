@@ -1,0 +1,22 @@
+spec:
+  inputs:
+    version:
+      description: python version
+      default: 3.9
+
+  stages:
+    - name: buildApp
+      type: ci
+      arch: linux
+      spec:
+        steps:
+          - name: build
+            type: run
+            spec:
+              container:
+                name: python:3.9
+                image: python:3.9
+                pull: if-not-exists
+              script: |-
+                  pip install -r requirements.txt
+                  pytest

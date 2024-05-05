@@ -1,3 +1,6 @@
+version: 1
+kind: pipeline
+
 spec:
   inputs:
     version:
@@ -12,7 +15,8 @@ spec:
         steps:
           - name: build
             type: run
-            when: build.action == "pullreq_created"
+#            Enable this condition when you want to run pipline if PR Created
+#            when: build.action == "pullreq_created"
             spec:
               container:
                 name: python:3.9
